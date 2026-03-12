@@ -1,0 +1,29 @@
+# EditorConfig: https://editorconfig.org
+# WordPress coding standards and common plugin file types.
+# https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# WordPress PHP: tabs for indentation (WPCS).
+[*.php]
+indent_style = tab
+
+# JS, CSS, JSON, YAML, XML: spaces (common for plugins).
+[*.{js,jsx,css,scss,json,yml,yaml,xml}]
+indent_style = space
+indent_size = 2
+
+# Markdown: allow trailing whitespace (line breaks).
+[*.md]
+trim_trailing_whitespace = false
+
+# Composer / config.
+[{composer.json,.phpcs.xml,phpstan.neon.dist}]
+indent_style = space
+indent_size = 2

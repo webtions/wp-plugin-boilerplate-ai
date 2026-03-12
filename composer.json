@@ -1,0 +1,39 @@
+{
+	"name": "wp-plugin-boilerplate-ai/plugin",
+	"description": "WordPress plugin boilerplate for AI-assisted development with PHPCS, WPCS, and PHPStan.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"php": ">=8.0"
+	},
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+		"php-stubs/wordpress-stubs": "^6.0",
+		"phpstan/extension-installer": "^1.4",
+		"phpstan/phpstan": "^1.10",
+		"szepeviktor/phpstan-wordpress": "^1.3",
+		"wp-coding-standards/wpcs": "^3.0"
+	},
+	"scripts": {
+		"standards:check": "phpcs",
+		"standards:fix": "phpcbf",
+		"cs": "@standards:check",
+		"cbf": "@standards:fix",
+		"analyze": "php -d memory_limit=512M vendor/bin/phpstan analyse",
+		"qa": [
+			"@cs",
+			"@analyze"
+		],
+		"package": "git archive --format=zip --output=wp-plugin-boilerplate-ai.zip HEAD",
+		"pot": "wp i18n make-pot . languages/wp-plugin-boilerplate-ai.pot --domain=wp-plugin-boilerplate-ai"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"phpstan/extension-installer": true
+		},
+		"sort-packages": true
+	},
+	"minimum-stability": "stable",
+	"prefer-stable": true
+}

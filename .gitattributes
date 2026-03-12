@@ -1,0 +1,41 @@
+# Line endings
+* text=auto
+
+# Binary files
+*.gif   binary
+*.ico   binary
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.webp  binary
+*.svg   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.eot   binary
+*.zip   binary
+
+# OS / IDE
+.DS_Store     export-ignore
+.idea/        export-ignore
+.vscode/      export-ignore
+.cursor/      export-ignore
+
+# Exclude from distribution zip (git archive) — only plugin runtime + readme ship.
+# Dev/repo-only: vendor, node, build, .github, _docs (incl. ARCHITECTURE.md), .wordpress-org,
+# editorconfig, composer.*, .git*, phpcs/phpstan, README.md
+/vendor/           export-ignore
+/node_modules/     export-ignore
+/build/            export-ignore
+.github/           export-ignore
+/_docs/            export-ignore
+/.wordpress-org/   export-ignore
+.editorconfig     export-ignore
+composer.json     export-ignore
+composer.lock     export-ignore
+.gitignore        export-ignore
+.gitattributes    export-ignore
+.phpcs.xml        export-ignore
+phpstan.neon      export-ignore
+phpstan.neon.dist export-ignore
+README.md         export-ignore

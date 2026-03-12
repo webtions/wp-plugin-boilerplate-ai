@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<ruleset name="WP Plugin Boilerplate AI">
+	<description>WordPress Coding Standards for the plugin. Used to enforce consistency and catch common mistakes when building with AI assistance.</description>
+
+	<arg name="extensions" value="php"/>
+	<arg name="cache"/>
+	<ini name="memory_limit" value="512M"/>
+	<arg name="basepath" value="./"/>
+	<arg value="ps"/>
+	<arg name="parallel" value="8"/>
+
+	<file>.</file>
+
+	<!-- WordPress rulesets -->
+	<rule ref="WordPress-Core"/>
+	<rule ref="WordPress-Docs"/>
+	<rule ref="WordPress-Extra"/>
+
+	<!-- Optional: soften some rules to warnings -->
+	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
+		<type>warning</type>
+	</rule>
+
+	<!-- Exclude vendor and non-PHP assets -->
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>node_modules/*</exclude-pattern>
+	<exclude-pattern>assets/js/*</exclude-pattern>
+	<exclude-pattern>assets/css/*</exclude-pattern>
+
+	<!-- Relax file naming so class files can use class-*.php or PSR-4 style -->
+	<rule ref="WordPress.Files.FileName">
+		<exclude-pattern>*</exclude-pattern>
+	</rule>
+</ruleset>

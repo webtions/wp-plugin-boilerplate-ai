@@ -1,0 +1,15 @@
+/**
+ * Admin styles.
+ * Enqueued in includes/class-plugin.php on admin_enqueue_scripts.
+ *
+ * @package WpPluginBoilerplateAi
+ */
+
+/* Example: style your admin UI here */
+.wp-plugin-boilerplate-ai-wrap {
+	max-width: 800px;
+}
+
+.wp-plugin-boilerplate-ai-wrap h1 {
+	margin-bottom: 1em;
+}

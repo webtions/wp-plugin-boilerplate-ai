@@ -1,0 +1,11 @@
+/**
+ * Front-end styles.
+ * Enqueued in includes/class-plugin.php on wp_enqueue_scripts.
+ *
+ * @package WpPluginBoilerplateAi
+ */
+
+/* Example: style front-end output (shortcodes, blocks, etc.) */
+.wp-plugin-boilerplate-ai-container {
+	margin: 1em 0;
+}

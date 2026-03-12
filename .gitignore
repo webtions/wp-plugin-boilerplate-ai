@@ -1,0 +1,26 @@
+# Composer
+/vendor/
+composer.lock
+composer.phar
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build / dependencies
+node_modules/
+/build/
+*.zip
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# PHPStan
+phpstan.neon
+phpstan-baseline.neon

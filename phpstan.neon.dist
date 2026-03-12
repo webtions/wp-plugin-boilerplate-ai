@@ -1,0 +1,26 @@
+parameters:
+    level: 5
+
+    bootstrapFiles:
+        - vendor/autoload.php
+        - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+
+    paths:
+        - .
+
+    excludePaths:
+        - vendor
+        - node_modules
+        - assets
+
+    reportUnmatchedIgnoredErrors: false
+
+    ignoreErrors:
+        - identifier: missingType.generics
+        # Plugin constants (defined in main plugin file)
+        - '#Constant WP_PLUGIN_BOILERPLATE_AI_#'
+        - '#Constant WP_PLUGIN_BOILERPLATE_AI_VERSION not found#'
+        - '#Constant WP_PLUGIN_BOILERPLATE_AI_FILE not found#'
+        - '#Constant WP_PLUGIN_BOILERPLATE_AI_PATH not found#'
+        - '#Constant WP_PLUGIN_BOILERPLATE_AI_URL not found#'
+        - '#Constant WP_PLUGIN_BOILERPLATE_AI_BASENAME not found#'
