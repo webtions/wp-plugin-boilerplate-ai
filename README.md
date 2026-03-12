@@ -4,7 +4,7 @@ A structured WordPress plugin foundation for **AI-assisted development**. Clone 
 
 This boilerplate is intended for developers who already understand [WordPress plugin development](https://developer.wordpress.org/plugins/) (hooks, filters, escaping, sanitization). It is not a beginner tutorial.
 
-**Related:** [Building WordPress Plugins with AI the Right Way](https://example.com) — article that explains the workflow and why this structure exists.
+**Related:** [Building WordPress Plugins with AI the Right Way](https://themeist.com/building-wordpress-plugins-with-ai-the-right-way/) — article that explains the workflow and why this structure exists.
 
 ---
 
