@@ -1,0 +1,50 @@
+---
+description: Plugin architecture, folder responsibilities, naming, and how to add features. Keeps AI-generated code consistent with this boilerplate.
+alwaysApply: true
+---
+
+# WordPress Plugin Boilerplate — Architecture and Conventions
+
+When editing or adding code in this plugin, follow this structure so the codebase stays consistent and maintainable.
+
+## Main plugin file (root `*.php`)
+
+- **Bootstrap only.** No business logic, no hooks, no output.
+- Contains: plugin header, `ABSPATH` check, constants, and a single `require` that loads the main class. Then instantiate that class (e.g. `Plugin::instance()`).
+- Do **not** add actions, filters, or function definitions here. All of that belongs in `includes/`.
+
+## `includes/`
+
+- **All PHP logic lives here.** One class per file.
+- **Main loader:** `class-plugin.php` in the plugin namespace. It registers `add_action` / `add_filter` and may load or instantiate other classes. New hooks are typically registered here or in a dedicated class that the loader instantiates.
+- **Naming:** Use `class-*.php` (WordPress style) or match the class name. Keep the same namespace (e.g. `WpPluginBoilerplateAi`) or use sub-namespaces like `WpPluginBoilerplateAi\Admin`, `WpPluginBoilerplateAi\Frontend`.
+- **No inline CSS/JS** beyond minimal template output. Enqueue scripts and styles from a class using `assets/`.
+
+## `assets/`
+
+- **`assets/css/`** — stylesheets. **`assets/js/`** — JavaScript.
+- Enqueue via `wp_enqueue_script` and `wp_enqueue_style` from a class in `includes/` (e.g. admin or frontend class). Use plugin constants (e.g. `WP_PLUGIN_BOILERPLATE_AI_URL`, `WP_PLUGIN_BOILERPLATE_AI_VERSION`) for URLs and versioning.
+- Do not put business logic in the root plugin file to “bootstrap” assets; keep that in `includes/`.
+
+## Adding new features
+
+- **New hook or behaviour:** Add a new class in `includes/` (or a subfolder like `includes/admin/`). Register it or its hooks from the main `Plugin` class (or a small loader class).
+- **New admin page or UI:** New class in `includes/` (or `includes/admin/`); that class enqueues CSS/JS from `assets/css/` and `assets/js/`.
+- **Shortcodes / blocks:** New class in `includes/` that registers the shortcode or block; keep rendering and logic in that class.
+
+## Standards
+
+- **PHP 8.0+.** Use type hints and return types. Prefer strict typing where possible.
+- **WordPress Coding Standards (WPCS):** Run `composer cs` and `composer cbf`. Escaping and sanitization: use `esc_html`, `esc_attr`, `wp_kses_*`, `sanitize_*` as appropriate; never output unescaped user or dynamic data.
+- **PHPStan:** Run `composer analyze`. Fix or document any reported issues; do not leave unresolved errors in new code.
+- **Security:** Use prepared statements for SQL (`$wpdb->prepare`), nonces for forms, and capability checks for admin actions. Do not trust `$_GET`/`$_POST` without sanitization and validation.
+
+## Summary
+
+- Root plugin file = bootstrap only. No logic.
+- All logic and hooks = `includes/`.
+- All CSS/JS = `assets/css/`, `assets/js/`, enqueued from `includes/`.
+- New features = new classes in `includes/`, registered from the main loader.
+- Follow WPCS and PHPStan; escape and sanitize all user-facing and stored data.
+
+See **_docs/ARCHITECTURE.md** in the repo for the full structure.

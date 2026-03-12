@@ -1,0 +1,42 @@
+---
+description: Git and commits — commit message format, and that git actions require user approval. Keeps version control safe and history readable.
+alwaysApply: true
+---
+
+# Workflow — Git and Commits
+
+Follow these rules for version control so the human stays in control and commit history stays useful.
+
+## Git: user approval required
+
+- **Do not run** `git commit`, `git push`, `git reset`, `git checkout -b`, `git merge`, `git stash`, or any other git write or destructive command yourself.
+- **Do** suggest the exact command(s) and the commit message (if applicable), and tell the user to run them in their terminal or to approve before running.
+- **Never suggest** `git push --force` or `git reset --hard` without a clear warning about data loss and asking the user to confirm.
+- The user (or the IDE’s approval flow) must perform all git operations; you only propose.
+
+## Commit messages
+
+When you suggest or write a commit message, use this format so history is consistent and scannable.
+
+- **Format:** `type: short description` (imperative mood, lowercase after the colon).
+- **Types (examples):** `feat`, `fix`, `refactor`, `docs`, `style`, `test`, `chore`.
+- **Scope (optional):** `feat(admin): add settings page` or `fix(shortcode): escape output`.
+- **Length:** First line under ~72 characters; add a body if you need to explain why.
+
+**Good examples:**
+
+- `feat: add admin menu under Settings`
+- `fix(settings): sanitize option before save`
+- `refactor: move enqueue logic to dedicated class`
+- `docs: update readme installation steps`
+
+**Avoid:**
+
+- Vague: "fix", "update", "changes".
+- Past tense: "fixed bug" → use "fix: escape output in widget".
+- Multiple changes in one message; prefer one logical change per commit.
+
+## Summary
+
+- You do not run git; you suggest commands for the user to run.
+- Commit messages: `type: description` or `type(scope): description`, imperative, one change per commit.

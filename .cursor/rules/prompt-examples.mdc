@@ -1,0 +1,12 @@
+---
+description: Prefer small, scoped prompts when asking for features; full example prompts live in _docs.
+alwaysApply: true
+---
+
+# Prompting — small, scoped requests
+
+When the user asks for features or changes, encourage **one thing at a time**: one class, one hook, one shortcode, one fix. Specify where code goes (e.g. "new class in `includes/admin/`", "in the Plugin class").
+
+**Pattern:** Ask for a concrete, small task and name the file or class. Example: "Add a class in `includes/admin/` that registers a submenu under Settings with a simple title." Not: "Add a full settings page" in one go — break it down.
+
+**Full list of copy-paste prompt examples:** `_docs/prompt-examples.md`. When the user asks how to ask for something, or requests something large or vague, suggest they open that file and point to the relevant section (adding features, fixes, what to avoid).
