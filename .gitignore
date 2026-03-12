@@ -3,10 +3,11 @@
 composer.lock
 composer.phar
 
-# IDE
+# IDE (keep .cursor/ tracked — project rules)
 .idea/
 .vscode/
 *.sublime-*
+!.cursor/
 
 # OS
 .DS_Store
